@@ -45,5 +45,5 @@ backend_args = dict(backend='local')
 
 # training/validation/testing progress
 train_cfg = dict(by_epoch=True)
-val_cfg = dict()
-test_cfg = dict()
+val_cfg = {}
+test_cfg = {}

@@ -213,8 +213,9 @@ custom_hooks = [
 
 # evaluators
 val_evaluator = dict(
-    type='CocoMetric',
-    ann_file=data_root + 'annotations/ap10k-val-split1.json')
+    type='CocoMetric', ann_file=f'{data_root}annotations/ap10k-val-split1.json'
+)
 test_evaluator = dict(
     type='CocoMetric',
-    ann_file=data_root + 'annotations/ap10k-test-split1.json')
+    ann_file=f'{data_root}annotations/ap10k-test-split1.json',
+)

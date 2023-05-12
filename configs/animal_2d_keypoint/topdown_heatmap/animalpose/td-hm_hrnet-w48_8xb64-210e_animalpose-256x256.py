@@ -143,5 +143,6 @@ test_dataloader = val_dataloader
 
 # evaluators
 val_evaluator = dict(
-    type='CocoMetric', ann_file=data_root + 'annotations/animalpose_val.json')
+    type='CocoMetric', ann_file=f'{data_root}annotations/animalpose_val.json'
+)
 test_evaluator = val_evaluator

@@ -1,14 +1,12 @@
 _base_ = ['../../../_base_/default_runtime.py']
 
-# runtime
-train_cfg = dict(max_epochs=210, val_interval=10)
-
 # optimizer
 optim_wrapper = dict(optimizer=dict(
     type='Adam',
     lr=5e-4,
 ))
 
+train_cfg = dict(max_epochs=210, val_interval=10)
 # learning policy
 param_scheduler = [
     dict(
@@ -101,12 +99,12 @@ val_dataloader = dict(
         data_root=data_root,
         data_mode=data_mode,
         ann_file='annotations/person_keypoints_val2017.json',
-        bbox_file=data_root + 'person_detection_results/'
-        'COCO_val2017_detections_AP_H_56_person.json',
+        bbox_file=f'{data_root}person_detection_results/COCO_val2017_detections_AP_H_56_person.json',
         data_prefix=dict(img='val2017/'),
         test_mode=True,
         pipeline=val_pipeline,
-    ))
+    ),
+)
 test_dataloader = val_dataloader
 
 # hooks
@@ -115,5 +113,6 @@ default_hooks = dict(checkpoint=dict(save_best='coco/AP', rule='greater'))
 # evaluators
 val_evaluator = dict(
     type='CocoMetric',
-    ann_file=data_root + 'annotations/person_keypoints_val2017.json')
+    ann_file=f'{data_root}annotations/person_keypoints_val2017.json',
+)
 test_evaluator = val_evaluator

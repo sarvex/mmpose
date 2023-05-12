@@ -228,8 +228,9 @@ custom_hooks = [
 # evaluators
 val_evaluator = dict(
     type='CocoMetric',
-    ann_file=data_root + 'crowdpose/annotations/mmpose_crowdpose_test.json',
+    ann_file=f'{data_root}crowdpose/annotations/mmpose_crowdpose_test.json',
     use_area=False,
     iou_type='keypoints_crowd',
-    prefix='crowdpose')
+    prefix='crowdpose',
+)
 test_evaluator = val_evaluator

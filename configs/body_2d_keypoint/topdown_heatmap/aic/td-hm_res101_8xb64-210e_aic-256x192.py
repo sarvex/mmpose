@@ -117,6 +117,7 @@ test_dataloader = val_dataloader
 # evaluators
 val_evaluator = dict(
     type='CocoMetric',
-    ann_file=data_root + 'annotations/aic_val.json',
-    use_area=False)
+    ann_file=f'{data_root}annotations/aic_val.json',
+    use_area=False,
+)
 test_evaluator = val_evaluator
